@@ -12,8 +12,14 @@ class App extends StatelessWidget {
     return CommentsProvider(
       child: StoriesProvider(
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
           title: 'News!',
           onGenerateRoute: routes,
+          theme: ThemeData(
+            appBarTheme: AppBarTheme(
+              color:  Colors.brown[800],
+            ),
+          ),
         ),
       ),
     );
@@ -23,6 +29,9 @@ class App extends StatelessWidget {
     if (settings.name == '/') {
       return MaterialPageRoute(
         builder: (context) {
+          final storiesBloc = StoriesProvider.of(context);
+          storiesBloc.fetchTopIds();
+
           return const NewsList();
         },
       );

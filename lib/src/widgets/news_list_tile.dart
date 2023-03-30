@@ -41,7 +41,7 @@ class NewsListTile extends StatelessWidget {
           title: Text(item.title!),
           subtitle: Text('${item.score} points'),
           trailing: Column(children: [
-            const Icon(Icons.comment),
+            Icon(Icons.comment, color:  Colors.brown[800],),
             Text('${item.descendants}')
           ],),
         ),
